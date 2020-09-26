@@ -7,6 +7,7 @@ import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:package_info/package_info.dart';
+import 'package:universal_platform/universal_platform.dart';
 
 import 'enums.dart';
 
@@ -25,12 +26,12 @@ class Client {
         if(kIsWeb) {
             type = 'web';
         }else{
-            type = (Platform.isIOS) ? 'ios' : type;
-            type = (Platform.isMacOS) ? 'macos' : type;
-            type = (Platform.isAndroid) ? 'android' : type;
-            type = (Platform.isLinux) ? 'linux' : type;
-            type = (Platform.isWindows) ? 'windows' : type;
-            type = (Platform.isFuchsia) ? 'fuchsia' : type;
+            type = (UniversalPlatform.isIOS) ? 'ios' : type;
+            type = (UniversalPlatform.isMacOS) ? 'macos' : type;
+            type = (UniversalPlatform.isAndroid) ? 'android' : type;
+            type = (UniversalPlatform.isLinux) ? 'linux' : type;
+            type = (UniversalPlatform.isWindows) ? 'windows' : type;
+            type = (UniversalPlatform.isFuchsia) ? 'fuchsia' : type;
         }
         
         this.headers = {
